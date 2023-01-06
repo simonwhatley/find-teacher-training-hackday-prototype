@@ -34,7 +34,25 @@ router.get('/', async (req, res) => {
 /// SEARCH ROUTES
 /// ------------------------------------------------------------------------ ///
 
+router.get('/search', searchController.search_get)
+router.post('/search', searchController.search_post)
 
+router.get('/age-groups', searchController.age_groups_get)
+router.post('/age-groups', searchController.age_groups_post)
+
+router.get('/primary-subjects', searchController.primary_subjects_get)
+router.post('/primary-subjects', searchController.primary_subjects_post)
+
+router.get('/secondary-subjects', searchController.secondary_subjects_get)
+router.post('/secondary-subjects', searchController.secondary_subjects_post)
+
+/// ------------------------------------------------------------------------ ///
+/// AUTOCOMPLETE ROUTES
+/// ------------------------------------------------------------------------ ///
+
+router.get('/location-suggestions', searchController.location_suggestions_json)
+
+router.get('/provider-suggestions', searchController.provider_suggestions_json)
 
 /// ------------------------------------------------------------------------ ///
 /// PROTOTYPE ADMIN
