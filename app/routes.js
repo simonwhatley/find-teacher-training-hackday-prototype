@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 
 // Controller modules
+const courseController = require('./controllers/courses')
 const resultsController = require('./controllers/results')
 const searchController = require('./controllers/search')
 
@@ -77,6 +78,14 @@ router.get('/results/remove-vacancy-filter/:vacancy', resultsController.removeVa
 router.get('/results/remove-visa-sponsorship-filter/:visaSponsorship', resultsController.removeVisaSponsorshipFilter)
 
 router.get('/results/remove-all-filters', resultsController.removeAllFilters)
+
+/// ------------------------------------------------------------------------ ///
+/// COURSES ROUTES
+/// ------------------------------------------------------------------------ ///
+
+router.get('/providers/:providerCode/courses/:courseCode', courseController.show)
+
+router.get('/course/:providerCode/:courseCode', courseController.show)
 
 /// ------------------------------------------------------------------------ ///
 /// PROTOTYPE ADMIN
