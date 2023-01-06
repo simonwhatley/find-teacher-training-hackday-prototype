@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 
 // Controller modules
-
+const searchController = require('./controllers/search')
 
 
 const checkHasSearchParams = (req, res, next) => {
