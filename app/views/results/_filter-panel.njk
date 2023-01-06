@@ -1,55 +1,4 @@
 {% set filterOptionsHtml %}
-{% if userJourney == "browse" and data.ageGroup == "primary" %}
-  {{ govukCheckboxes({
-    idPrefix: "subject",
-    name: "filter[subject]",
-    fieldset: {
-      legend: {
-        html: 'Specialist subjects<span class="govuk-visually-hidden"> filter</span>',
-        classes: "govuk-fieldset__legend--s"
-      }
-    },
-    formGroup: {
-      classes: "app-filter__group"
-    },
-    items: subjectItems,
-    classes: "govuk-checkboxes--small"
-  }) }}
-{% endif %}
-
-{% if userJourney == "browse" and data.route == "all" and data.ageGroup == "secondary" or userJourney == "filter" %}
-  {% if subjectItems.length >= subjectItemsDisplayLimit %}
-
-    {{ appCheckboxFilter({
-      idPrefix: "subject",
-      name: "filter[subject]",
-      legend: {
-        html: 'Subject<span class="govuk-visually-hidden"> filter</span>'
-      },
-      items: subjectItems,
-      selectedItems: selectedSubjects,
-      showSelectedTags: true if userJourney in ["browse","filter"] else false,
-      classes: "govuk-!-margin-bottom-7"
-    }) }}
-
-  {% else %}
-
-    {{ govukCheckboxes({
-      idPrefix: "subject",
-      name: "filter[subject]",
-      fieldset: {
-        legend: {
-          html: 'Subject<span class="govuk-visually-hidden"> filter</span>',
-          classes: "govuk-fieldset__legend--s"
-        }
-      },
-      items: subjectItems,
-      classes: "govuk-checkboxes--small"
-    }) }}
-
-  {% endif %}
-{% endif %}
-
 {% if hasSearchPhysics %}
 {{ govukCheckboxes({
   idPrefix: "engineers-teach-physics",
@@ -99,24 +48,6 @@
   items: vacancyItems,
   classes: "govuk-checkboxes--small"
 }) }}
-
-{% if userJourney == "hackday" %}
-  {{ govukCheckboxes({
-    idPrefix: "provider-type",
-    name: "filter[providerType]",
-    fieldset: {
-      legend: {
-        html: 'Provider type<span class="govuk-visually-hidden"> filter</span>',
-        classes: "govuk-fieldset__legend--s"
-      }
-    },
-    formGroup: {
-      classes: "app-filter__group"
-    },
-    items: providerTypeItems,
-    classes: "govuk-checkboxes--small"
-  }) }}
-{% endif %}
 
 {{ govukCheckboxes({
   idPrefix: "study-mode",
@@ -209,8 +140,7 @@
     </div>
   </div>
   <div class="app-filter__content">
-    {# {% if userJourney == "filter" and selectedFilters %}
-      <div class="app-filter__selected">
+    {# <div class="app-filter__selected">
         <div class="app-filter__selected-heading">
           <div class="app-filter__heading-title">
             <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Selected filters</h2>
@@ -231,8 +161,7 @@
             {% endfor %}
           </ul>
         {% endfor %}
-      </div>
-    {% endif %} #}
+      </div> #}
     <div class="app-filter__options">
       <form method="get" action="{{ actions.filters.apply }}" novalidate>
         <button class="govuk-button" data-module="govuk-button">

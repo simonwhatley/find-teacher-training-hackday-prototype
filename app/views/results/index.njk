@@ -19,9 +19,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
 
-      {% if userJourney in ["browse","search"] %}
-        {% include "./_search-terms.njk" %}
-      {% endif %}
+      {% include "./_search-terms.njk" %}
 
       <h1 class="govuk-heading-xl">
         {{ title }}
@@ -45,11 +43,6 @@
 
       {% include "./_promoted-link.njk" %}
 
-      {# TODO include the provider search in the browse journey #}
-      {% if userJourney in ["filter"] %}
-        {% include "./_search-panel.njk" %}
-      {% endif %}
-
       {% include "./_sort-options.njk" %}
 
       {% if results.length %}
@@ -57,14 +50,6 @@
         <ul class="app-search-results">
           {% for result in results %}
             <li class="app-search-results__item">
-
-              {% if userJourney == "hackday" %}
-                {{ govukTag({
-                  text: "Accredited provider",
-                  classes: "govuk-tag--turquoise govuk-!-margin-bottom-1"
-                }) if result.provider.is_accredited_body }}
-              {% endif %}
-
               {% set isLocationSearch = (data.q == "location") %}
               {% set isUniversity = (result.provider.provider_type == "university") %}
               {% set trainingLocation = result.course.trainingLocation %}
@@ -72,7 +57,6 @@
               {{ appResultDetail({
                 href: "/providers/" + result.provider.code + "/courses/" + result.course.code,
                 providerName: result.provider.name | markdown("inline"),
-                providerCode: result.provider.code if userJourney in ["browse","filter","hackday"],
                 courseName: result.course.name + " (" + result.course.code + ")",
                 schools: result.schools if not isUniversity and isLocationSearch,
                 trainingLocation: {
