@@ -1,0 +1,39 @@
+{% set footerHtml %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <p class="govuk-!-font-size-16 govuk-!-margin-bottom-1">Call 0800 389 2500 or <a class="govuk-footer__link" href="#">chat online</a></p>
+    <p class="govuk-!-font-size-16 govuk-!-margin-bottom-1">Monday to Friday, 8.30am to 5.30pm</p>
+    <p class="govuk-!-font-size-16">Free of charge</p>
+    <ul class="govuk-footer__meta-custom govuk-list govuk-!-font-size-16 govuk-!-margin-bottom-4">
+        <li>
+          <a class="govuk-footer__link" href="https://getintoteaching.education.gov.uk/">
+            Find out more about getting into teaching
+          </a>
+        </li>
+      </ul>
+  </div>
+</div>
+{% endset %}
+
+{{ appFooter({
+  meta: {
+    items: [{
+      href: "/admin/clear-data",
+      text: "Clear data"
+    } if useAutoStoreData, {
+      href: "#",
+      text: "Accessibility"
+    }, {
+      href: "#",
+      text: "Cookies"
+    }, {
+      href: "#",
+      text: "Privacy policy"
+    }, {
+      href: "#",
+      text: "Terms and conditions"
+    }],
+    title: "Get help",
+    html: footerHtml
+  }
+}) }}

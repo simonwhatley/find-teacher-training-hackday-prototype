@@ -1,0 +1,66 @@
+{% extends "_layouts/default.njk" %}
+
+{% set title = "Primary courses with subject specialisms" %}
+
+{% block pageTitle %}
+{{ "Error: " if errors }}{{ title + " - " if title }}{{ caption + " - " if caption }}{{ serviceName }} - GOV.UK
+{% endblock %}
+
+{% block pageNavigation %}
+{{ govukBackLink({
+  text: "Back",
+  href: "/age-groups"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  {% if errors.length %}
+    {% include "_includes/error-summary.njk" %}
+  {% else %}
+    {% if data.cycleClosed %}
+      {% include "_includes/cycle-closed-banner.njk" %}
+    {% elif data.nearingEndOfCycle %}
+      {% include "_includes/nearing-end-of-cycle-banner.njk" %}
+    {% endif %}
+  {% endif %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">{{ title }}</h1>
+
+      <p class="govuk-body">
+        As a trainee primary teacher you’ll learn to teach all subjects across the national curriculum.
+      </p>
+
+      <p class="govuk-body">
+        Some courses also enable you to develop your knowledge of a particular subject. When you’re a teacher, you could take on a role to influence the way it’s taught in your school - for example, mentoring your teacher colleagues to teach that subject better.
+      </p>
+
+      <form action="/primary-subjects" method="post" accept-charset="utf-8" novalidate>
+
+        {{ govukCheckboxes({
+          idPrefix: "subject",
+          name: "filter[subject]",
+          fieldset: {
+            legend: {
+              text: "Which courses would you like to find?",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          hint: {
+            text: "Select all subjects you are interested in teaching"
+          },
+          errorMessage: errors | getErrorMessage("subject"),
+          items: subjectItems
+        }) }}
+
+        {{ govukButton({
+          text: "Find courses"
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}

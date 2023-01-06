@@ -1,0 +1,72 @@
+[
+  {
+    "id": "7edd5f95-27c6-4dcc-87c4-93b8e11e7094",
+    "code": "pgce_with_qts",
+    "text": "PGCE with QTS",
+    "html": "<abbr title='Postgraduate certificate in education'>PGCE</abbr> with <abbr title='Qualified teacher status'>QTS</abbr>",
+    "longText": "Postgraduate certificate in education (PGCE) with qualified teacher status (QTS)",
+    "qualifications": [
+      "pgce",
+      "qts"
+    ],
+    "levels": [
+      "primary",
+      "secondary"
+    ]
+  },
+  {
+    "id": "b05a3e1f-9bd3-4517-b9d9-139592170590",
+    "code": "pgde_with_qts",
+    "text": "PGDE with QTS",
+    "html": "<abbr title='Postgraduate diploma in education'>PGDE</abbr> with <abbr title='Qualified teacher status'>QTS</abbr>",
+    "longText": "Postgraduate diploma in education (PGDE) with qualified teacher status (QTS)",
+    "qualifications": [
+      "pgde",
+      "qts"
+    ],
+    "levels": [
+      "primary",
+      "secondary"
+    ]
+  },
+  {
+    "id": "089b4c32-835e-4021-a316-003aac3c003a",
+    "code": "pgce",
+    "text": "PGCE without QTS",
+    "html": "<abbr title='Postgraduate certificate in education'>PGCE</abbr> without <abbr title='Qualified teacher status'>QTS</abbr>",
+    "longText": "Postgraduate certificate in education (PGCE) without qualified teacher status (QTS)",
+    "qualifications": [
+      "pgce"
+    ],
+    "levels": [
+      "furtherEducation"
+    ]
+  },
+  {
+    "id": "741f08da-2bd4-4ae0-83af-f8eaa506375a",
+    "code": "pgde",
+    "text": "PGDE without QTS",
+    "html": "<abbr title='Postgraduate diploma in education'>PGDE</abbr> without <abbr title='Qualified teacher status'>QTS</abbr>",
+    "longText": "Postgraduate diploma in education without (PGDE) qualified teacher status (QTS)",
+    "qualifications": [
+      "pgde"
+    ],
+    "levels": [
+      "furtherEducation"
+    ]
+  },
+  {
+    "id": "955e00b4-8e87-4a5b-96b5-7ae1a888b650",
+    "code": "qts",
+    "text": "QTS only",
+    "html": "<abbr title='Qualified teacher status'>QTS</abbr> only",
+    "longText": "Qualified teacher status (QTS)",
+    "qualifications": [
+      "qts"
+    ],
+    "levels": [
+      "primary",
+      "secondary"
+    ]
+  }
+]
