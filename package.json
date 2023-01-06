@@ -7,6 +7,8 @@
     "node": "18.12.1"
   },
   "scripts": {
+    "generate-data": "node ./scripts/generate-data.js",
+    "postinstall": "npm run generate-data",
     "start": "node start.js",
     "lint:scripts": "standard",
     "lint:scripts:fix": "standard --fix",
