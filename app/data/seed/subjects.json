@@ -429,6 +429,11 @@
     "code": "21",
     "level": "secondary",
     "hint": "Bursaries of £25,000 available",
+    "hint": "Scholarships of £27,000 and bursaries of £25,000 are available",
+    "funding": {
+      "bursary": 25000,
+      "scholarship": 27000
+    },
     "parentCode": "ML",
     "hasSke": true,
     "hasIrp": true
