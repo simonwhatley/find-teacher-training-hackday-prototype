@@ -6,6 +6,7 @@ const courseController = require('./controllers/courses')
 const resultsController = require('./controllers/results')
 const searchController = require('./controllers/search')
 
+const dataController = require('./controllers/data')
 
 const checkHasSearchParams = (req, res, next) => {
   if (!req.session.data?.filter?.subject) {
@@ -95,6 +96,8 @@ router.get('/admin/clear-data', (req, res) => {
   delete req.session.data
   res.redirect('/')
 })
+
+router.get('/seed', dataController.seed)
 
 /// ------------------------------------------------------------------------ ///
 /// ERRORS
